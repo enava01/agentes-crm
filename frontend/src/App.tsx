@@ -23,6 +23,8 @@ interface CommercialPlace {
 }
 
 const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
+// @ts-ignore
+window.DEBUG_KEY = GOOGLE_MAPS_API_KEY;
 
 export default function App() {
     const [location, setLocation] = useState('distrito-federal/mexico-city');
@@ -36,7 +38,7 @@ export default function App() {
     const handleSearch = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`http://localhost:8000/search?location=${location}&limit=${limit}&source=all`);
+            const response = await fetch(`/search?location=${location}&limit=${limit}&source=all`);
             const data = await response.json();
             setProperties(data);
         } catch (error) {
@@ -49,7 +51,7 @@ export default function App() {
     const fetchNearby = async (lat: number, lng: number) => {
         setLoadingPlaces(true);
         try {
-            const response = await fetch(`http://localhost:8000/nearby-commercial?lat=${lat}&lng=${lng}`);
+            const response = await fetch(`/nearby-commercial?lat=${lat}&lng=${lng}`);
             const data = await response.json();
             setNearbyPlaces(data);
         } catch (error) {
@@ -171,7 +173,6 @@ export default function App() {
                         <Map
                             defaultCenter={{ lat: 19.4326, lng: -99.1332 }}
                             defaultZoom={11}
-                            mapId="bf50a91341416e8"
                             style={{ width: '100%', height: '100%' }}
                             colorScheme="DARK"
                         >

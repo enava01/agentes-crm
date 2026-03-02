@@ -1,3 +1,4 @@
+import asyncio
 import httpx
 from bs4 import BeautifulSoup
 import random
@@ -43,7 +44,7 @@ class LamudiScraper:
             
             for item in Listing_items:
                 # Add delay to avoid detection
-                time.sleep(random.uniform(1.0, 2.5))
+                await asyncio.sleep(random.uniform(1.0, 2.5))
                 
                 # Basic data extraction (placeholders for specific selectors)
                 name = item.select_one(".listing-card__title").text.strip() if item.select_one(".listing-card__title") else "N/A"
@@ -73,7 +74,7 @@ class LamudiScraper:
 
     async def scrape_listing_details(self, url: str) -> Dict[str, Any]:
         try:
-            time.sleep(random.uniform(2.0, 4.0)) # Politeness delay
+            await asyncio.sleep(random.uniform(2.0, 4.0)) # Politeness delay
             response = await self.client.get(url, headers=await self.get_headers())
             if response.status_code != 200:
                 return {}
