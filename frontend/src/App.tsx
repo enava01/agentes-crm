@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { APIProvider, Map, Marker, InfoWindow, useMap } from '@vis.gl/react-google-maps';
+import { useState, useEffect } from 'react';
+import { APIProvider, Map, Marker, InfoWindow } from '@vis.gl/react-google-maps';
 import { Search, MapPin, Building2, Phone, Mail, User, Info, Loader2 } from 'lucide-react';
 
 interface Property {
-    name: str;
-    agent?: str;
-    phone?: str;
-    email?: str;
-    address: str;
+    name: string;
+    agent?: string;
+    phone?: string;
+    email?: string;
+    address: string;
     lat?: number;
     lng?: number;
-    price?: str;
-    source: str;
+    price?: string;
+    source: string;
 }
 
 interface CommercialPlace {
-    name: str;
-    type: str;
-    address: str;
+    name: string;
+    type: string;
+    address: string;
     lat: number;
     lng: number;
 }
@@ -119,8 +119,8 @@ export default function App() {
                                 key={idx}
                                 onClick={() => setSelectedProperty(prop)}
                                 className={`p-4 rounded-xl border transition-all cursor-pointer ${selectedProperty === prop
-                                        ? 'bg-blue-900/30 border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]'
-                                        : 'bg-gray-700/50 border-gray-600 hover:border-gray-500'
+                                    ? 'bg-blue-900/30 border-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]'
+                                    : 'bg-gray-700/50 border-gray-600 hover:border-gray-500'
                                     }`}
                             >
                                 <h3 className="font-bold text-lg mb-1">{prop.name}</h3>

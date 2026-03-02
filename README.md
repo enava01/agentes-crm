@@ -22,7 +22,7 @@ This is a responsive PWA that allows you to search for residential properties an
 ### 2. Frontend
 1. Go to the `frontend` folder.
 2. Create a `.env` file: `echo "VITE_GOOGLE_MAPS_API_KEY=your_key_here" > .env`
-3. Run the development server: `npm run dev`
+3. Run the development server: `npm run dev` (or access via Docker at `http://localhost:8056`)
 
 ## Features
 - **Dual Scraper**: Extracts data from Lamudi and Inmuebles24.
